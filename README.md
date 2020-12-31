@@ -17,7 +17,6 @@ grunt.loadNpmTasks('grunt-search-duplicate-ng-factories');
 grunt.registerTask('default', ['searchDuplicateNgFactories']);
 ```
 
-
 ### Usage examples
 
 ```js
