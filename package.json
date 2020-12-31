@@ -1,0 +1,23 @@
+{
+  "name": "ng-search-duplicate-factories",
+  "version": "1.0.0",
+  "description": "Search duplicate angularjs factories factories",
+  "homepage": "",
+  "author": {
+    "name": "RAVI CHANDRA RAVULAPATI",
+    "email": "ravichandra480@gmail.com",
+    "url": "https://github.com/ravichandra480"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ravichandra480/ng-search-duplicate-factories"
+  },
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.3.0"
+  }
+}
