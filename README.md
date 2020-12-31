@@ -14,6 +14,7 @@ Once the plugin has been installed, you need to add this line of JS to your grun
 
 ```js
 grunt.loadNpmTasks('grunt-search-duplicate-ng-factories');
+grunt.registerTask('default', ['searchDuplicateNgFactories']);
 ```
 
 
