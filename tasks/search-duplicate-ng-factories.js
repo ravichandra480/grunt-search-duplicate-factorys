@@ -1,5 +1,6 @@
-"use strict";
+var fs = require('fs');
 
+"use strict";
 module.exports = function (grunt) {
     grunt.registerMultiTask(
         "searchDuplicateNgFactories",
@@ -62,22 +63,45 @@ module.exports = function (grunt) {
                     }
                 });
                 if (allMatchedFactoryNameCount > 1) {
-                    duplicates.push({
-                        factoryName: factoryName,
-                        source:  filePaths
+                    filePaths.forEach((fileInfo) => {
+                        duplicates.push({
+                            factoryName: factoryName,
+                            sourceFilePath: fileInfo.filePath,
+                            frequency: fileInfo.frequency
+                        });
                     });
                 }
             });
         });
 
         if (duplicates.length > 0) {
+            createXlsLogFile(duplicates);
             console.log(JSON.stringify(duplicates, null, 4));
-            grunt.log.writeln(JSON.stringify(duplicates, null, 4));
+            console.log('\x1b[41m', '\x1b[37m', 'Number of duplicate factories : ' + duplicates.length, '\x1b[0m');
+            console.log('\x1b[44m', '\x1b[37m', 'Log info can be find in the file duplicate-ng-factories.xls', '\x1b[0m');
             grunt.fail.fatal("Duplicate factory's found this will break application");
         }
         console.log("====== No duplicate factory names ==========");
     }
+
     function findFrequency(arr, searchValue) {
         return arr.filter((value) => value.toLowerCase() === searchValue.toLowerCase()).length;
+    }
+
+    function createXlsLogFile(data) {
+        fs.createWriteStream("duplicate-ng-factories.xls");
+        var CSV;
+        var row = 'Factory name' + ',' + 'Source file path' + ',' + 'Number of times name used';
+        row = row.slice(0, -1);
+        CSV += row + '\r\n';
+        for (var i = 0; i < data.length; i++) {
+            row = "";
+            for (var index in data[i]) {
+                row += '"' + data[i][index] + '",';
+            }
+            row.slice(0, row.length - 1);
+            CSV += row + '\r\n';
+        }
+        grunt.file.write("duplicate-ng-factories.xls", CSV);
     }
 };
