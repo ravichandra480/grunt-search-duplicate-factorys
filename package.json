@@ -1,5 +1,5 @@
 {
-  "name": "ng-search-duplicate-factories",
+  "name": "grunt-search-duplicate-ng-factories",
   "version": "1.0.0",
   "description": "Search duplicate angularjs factories factories",
   "homepage": "",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ravichandra480/ng-search-duplicate-factories"
+    "url": "https://github.com/ravichandra480/grunt-search-duplicate-ng-factories"
   },
   "main": "Gruntfile.js",
   "scripts": {

@@ -2,7 +2,7 @@
 
 module.exports = function (grunt) {
     grunt.registerMultiTask(
-        "ngSearchDuplicateFactories",
+        "searchDuplicateNgFactories",
         "Grunt plugin that searches for duplicate angular factories",
         ngSearchDuplicateFactories
     );

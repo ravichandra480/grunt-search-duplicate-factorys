@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        ngSearchDuplicateFactories: {
+        searchDuplicateNgFactories: {
             default: {
                 files: {
                     src: "**"
@@ -16,5 +16,5 @@ module.exports = function(grunt) {
     grunt.loadTasks('tasks');
 
     // by default, lint and run all tests
-    grunt.registerTask('default', ['ngSearchDuplicateFactories']);
+    grunt.registerTask('default', ['searchDuplicateNgFactories']);
 };
