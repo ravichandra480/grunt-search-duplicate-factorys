@@ -29,3 +29,8 @@ grunt.initConfig({
         }
     },
 });
+```
+
+---
+
+`Note : Submit feature requests & issues here` https://github.com/ravichandra480/grunt-search-duplicate-ng-factories/issues 
